@@ -1,0 +1,9 @@
+Debugger listening on ws://127.0.0.1:60995/8fa2c23c-8888-41f3-95a0-8aec1a645dff
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+Debugger listening on ws://127.0.0.1:61001/4b46ecf9-8427-47e8-864e-770f64967c47
+For help, see: https://nodejs.org/en/docs/inspector
+Debugger attached.
+error: unknown option '--headed=false'
+Waiting for the debugger to disconnect...
+Waiting for the debugger to disconnect...

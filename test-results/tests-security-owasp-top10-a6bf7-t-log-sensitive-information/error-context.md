@@ -1,0 +1,270 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e5]:
+        - link "🍕 Pizza Palace" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: 🍕
+          - generic [ref=e9]: Pizza Palace
+        - generic [ref=e10]:
+          - link "Menu" [ref=e11] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e12] [cursor=pointer]:
+            - /url: /about
+          - link "Contact" [ref=e13] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e14]:
+          - link "$0.00" [ref=e15] [cursor=pointer]:
+            - /url: /cart
+            - button "$0.00" [ref=e16]:
+              - img [ref=e17]
+              - generic [ref=e19]: $0.00
+          - generic [ref=e20]:
+            - button "Monitor" [ref=e21]:
+              - img [ref=e22]
+              - generic [ref=e24]: Monitor
+            - link "Login" [ref=e25] [cursor=pointer]:
+              - /url: /login
+              - button "Login" [ref=e26]:
+                - img [ref=e27]
+                - generic [ref=e29]: Login
+    - generic [ref=e31]:
+      - heading "Welcome to Pizza Palace" [level=1] [ref=e32]
+      - paragraph [ref=e33]: Fresh, handcrafted pizzas delivered to your door
+      - paragraph [ref=e36]: 🍕 Free delivery on orders over $25
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - button "All" [ref=e39]
+        - button "Classic" [ref=e40]
+        - button "Premium" [ref=e41]
+        - button "Vegetarian" [ref=e42]
+        - button "Specialty" [ref=e43]
+        - button "Vegan" [ref=e44]
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e48]:
+            - img "Margherita" [ref=e49]
+            - generic [ref=e51]: classic
+            - generic [ref=e53]:
+              - img [ref=e54]
+              - generic [ref=e56]: "4.5"
+          - generic [ref=e58]:
+            - generic [ref=e59]:
+              - heading "Margherita" [level=3] [ref=e60]
+              - paragraph [ref=e61]: Classic pizza with fresh mozzarella, basil, and tomato sauce
+            - generic [ref=e62]:
+              - generic [ref=e63]: 🕐 12 min
+              - generic [ref=e64]: 🔥 280 cal
+            - generic [ref=e65]: "Ingredients: mozzarella cheese, fresh basil, tomato sauce, olive oil"
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: $14.99
+              - generic [ref=e69]: "Base: $14.99"
+            - generic [ref=e70]:
+              - button "Customize" [ref=e71]
+              - button "Add to Cart" [ref=e72]
+        - generic [ref=e73]:
+          - generic [ref=e75]:
+            - img "Pepperoni Classic" [ref=e76]
+            - generic [ref=e78]: classic
+            - generic [ref=e80]:
+              - img [ref=e81]
+              - generic [ref=e83]: "4.5"
+          - generic [ref=e85]:
+            - generic [ref=e86]:
+              - heading "Pepperoni Classic" [level=3] [ref=e87]
+              - paragraph [ref=e88]: Traditional pepperoni pizza with mozzarella and tomato sauce
+            - generic [ref=e89]:
+              - generic [ref=e90]: 🕐 14 min
+              - generic [ref=e91]: 🔥 320 cal
+            - generic [ref=e92]: "Ingredients: mozzarella cheese, pepperoni, tomato sauce"
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - generic [ref=e95]: $19.49
+              - generic [ref=e96]: "Base: $16.99"
+            - generic [ref=e97]:
+              - button "Customize" [ref=e98]
+              - button "Add to Cart" [ref=e99]
+        - generic [ref=e100]:
+          - generic [ref=e102]:
+            - img "Supreme Deluxe" [ref=e103]
+            - generic [ref=e105]: premium
+            - generic [ref=e107]:
+              - img [ref=e108]
+              - generic [ref=e110]: "4.5"
+          - generic [ref=e112]:
+            - generic [ref=e113]:
+              - heading "Supreme Deluxe" [level=3] [ref=e114]
+              - paragraph [ref=e115]: Loaded with pepperoni, sausage, mushrooms, bell peppers, and onions
+            - generic [ref=e116]:
+              - generic [ref=e117]: 🕐 18 min
+              - generic [ref=e118]: 🔥 380 cal
+            - generic [ref=e119]: "Ingredients: mozzarella cheese, pepperoni, italian sausage, mushrooms, bell peppers, red onions, tomato sauce"
+          - generic [ref=e120]:
+            - generic [ref=e121]:
+              - generic [ref=e122]: $32.24
+              - generic [ref=e123]: "Base: $22.99"
+            - generic [ref=e124]:
+              - button "Customize" [ref=e125]
+              - button "Add to Cart" [ref=e126]
+        - generic [ref=e127]:
+          - generic [ref=e129]:
+            - img "Hawaiian Paradise" [ref=e130]
+            - generic [ref=e132]: classic
+            - generic [ref=e134]:
+              - img [ref=e135]
+              - generic [ref=e137]: "4.5"
+          - generic [ref=e139]:
+            - generic [ref=e140]:
+              - heading "Hawaiian Paradise" [level=3] [ref=e141]
+              - paragraph [ref=e142]: Ham and pineapple with mozzarella on tomato sauce
+            - generic [ref=e143]:
+              - generic [ref=e144]: 🕐 15 min
+              - generic [ref=e145]: 🔥 290 cal
+            - generic [ref=e146]: "Ingredients: mozzarella cheese, ham, pineapple, tomato sauce"
+          - generic [ref=e147]:
+            - generic [ref=e148]:
+              - generic [ref=e149]: $23.74
+              - generic [ref=e150]: "Base: $18.99"
+            - generic [ref=e151]:
+              - button "Customize" [ref=e152]
+              - button "Add to Cart" [ref=e153]
+        - generic [ref=e154]:
+          - generic [ref=e156]:
+            - img "Veggie Delight" [ref=e157]
+            - generic [ref=e159]: vegetarian
+            - generic [ref=e161]:
+              - img [ref=e162]
+              - generic [ref=e164]: "4.5"
+          - generic [ref=e166]:
+            - generic [ref=e167]:
+              - heading "Veggie Delight" [level=3] [ref=e168]
+              - paragraph [ref=e169]: Fresh vegetables including mushrooms, bell peppers, onions, and tomatoes
+            - generic [ref=e170]:
+              - generic [ref=e171]: 🕐 16 min
+              - generic [ref=e172]: 🔥 250 cal
+            - generic [ref=e173]: "Ingredients: mozzarella cheese, mushrooms, bell peppers, red onions, tomatoes, black olives, tomato sauce"
+          - generic [ref=e174]:
+            - generic [ref=e175]:
+              - generic [ref=e176]: $24.99
+              - generic [ref=e177]: "Base: $17.99"
+            - generic [ref=e178]:
+              - button "Customize" [ref=e179]
+              - button "Add to Cart" [ref=e180]
+        - generic [ref=e181]:
+          - generic [ref=e183]:
+            - img "Meat Lovers" [ref=e184]
+            - generic [ref=e186]: premium
+            - generic [ref=e188]:
+              - img [ref=e189]
+              - generic [ref=e191]: "4.5"
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - heading "Meat Lovers" [level=3] [ref=e195]
+              - paragraph [ref=e196]: "For carnivores: pepperoni, sausage, bacon, and ham"
+            - generic [ref=e197]:
+              - generic [ref=e198]: 🕐 20 min
+              - generic [ref=e199]: 🔥 420 cal
+            - generic [ref=e200]: "Ingredients: mozzarella cheese, pepperoni, italian sausage, bacon, ham, tomato sauce"
+          - generic [ref=e201]:
+            - generic [ref=e202]:
+              - generic [ref=e203]: $36.74
+              - generic [ref=e204]: "Base: $24.99"
+            - generic [ref=e205]:
+              - button "Customize" [ref=e206]
+              - button "Add to Cart" [ref=e207]
+        - generic [ref=e208]:
+          - generic [ref=e210]:
+            - img "BBQ Chicken" [ref=e211]
+            - generic [ref=e213]: specialty
+            - generic [ref=e215]:
+              - img [ref=e216]
+              - generic [ref=e218]: "4.5"
+          - generic [ref=e220]:
+            - generic [ref=e221]:
+              - heading "BBQ Chicken" [level=3] [ref=e222]
+              - paragraph [ref=e223]: Grilled chicken with BBQ sauce, red onions, and cilantro
+            - generic [ref=e224]:
+              - generic [ref=e225]: 🕐 17 min
+              - generic [ref=e226]: 🔥 340 cal
+            - generic [ref=e227]: "Ingredients: mozzarella cheese, grilled chicken, red onions, cilantro, bbq sauce"
+          - generic [ref=e228]:
+            - generic [ref=e229]:
+              - generic [ref=e230]: $25.99
+              - generic [ref=e231]: "Base: $20.99"
+            - generic [ref=e232]:
+              - button "Customize" [ref=e233]
+              - button "Add to Cart" [ref=e234]
+        - generic [ref=e235]:
+          - generic [ref=e237]:
+            - img "Mediterranean" [ref=e238]
+            - generic [ref=e240]: specialty
+            - generic [ref=e242]:
+              - img [ref=e243]
+              - generic [ref=e245]: "4.5"
+          - generic [ref=e247]:
+            - generic [ref=e248]:
+              - heading "Mediterranean" [level=3] [ref=e249]
+              - paragraph [ref=e250]: Feta cheese, olives, spinach, and sun-dried tomatoes
+            - generic [ref=e251]:
+              - generic [ref=e252]: 🕐 16 min
+              - generic [ref=e253]: 🔥 310 cal
+            - generic [ref=e254]: "Ingredients: mozzarella cheese, feta cheese, spinach, black olives, sun-dried tomatoes, olive oil"
+          - generic [ref=e255]:
+            - generic [ref=e256]:
+              - generic [ref=e257]: $29.99
+              - generic [ref=e258]: "Base: $21.99"
+            - generic [ref=e259]:
+              - button "Customize" [ref=e260]
+              - button "Add to Cart" [ref=e261]
+        - generic [ref=e262]:
+          - generic [ref=e264]:
+            - img "Vegan Supreme" [ref=e265]
+            - generic [ref=e267]: vegan
+            - generic [ref=e269]:
+              - img [ref=e270]
+              - generic [ref=e272]: "4.5"
+          - generic [ref=e274]:
+            - generic [ref=e275]:
+              - heading "Vegan Supreme" [level=3] [ref=e276]
+              - paragraph [ref=e277]: Plant-based cheese with vegetables and dairy-free toppings
+            - generic [ref=e278]:
+              - generic [ref=e279]: 🕐 15 min
+              - generic [ref=e280]: 🔥 220 cal
+            - generic [ref=e281]: "Ingredients: vegan cheese, mushrooms, bell peppers, red onions, spinach, tomatoes, tomato sauce"
+          - generic [ref=e282]:
+            - generic [ref=e283]:
+              - generic [ref=e284]: $26.99
+              - generic [ref=e285]: "Base: $19.99"
+            - generic [ref=e286]:
+              - button "Customize" [ref=e287]
+              - button "Add to Cart" [ref=e288]
+        - generic [ref=e289]:
+          - generic [ref=e291]:
+            - img "Buffalo Chicken" [ref=e292]
+            - generic [ref=e294]: specialty
+            - generic [ref=e296]:
+              - img [ref=e297]
+              - generic [ref=e299]: "4.5"
+          - generic [ref=e301]:
+            - generic [ref=e302]:
+              - heading "Buffalo Chicken" [level=3] [ref=e303]
+              - paragraph [ref=e304]: Spicy buffalo chicken with ranch drizzle and celery
+            - generic [ref=e305]:
+              - generic [ref=e306]: 🕐 18 min
+              - generic [ref=e307]: 🔥 360 cal
+            - generic [ref=e308]: "Ingredients: mozzarella cheese, buffalo chicken, celery, ranch dressing, buffalo sauce"
+          - generic [ref=e309]:
+            - generic [ref=e310]:
+              - generic [ref=e311]: $26.49
+              - generic [ref=e312]: "Base: $21.99"
+            - generic [ref=e313]:
+              - button "Customize" [ref=e314]
+              - button "Add to Cart" [ref=e315]
+  - button "Open Next.js Dev Tools" [ref=e321] [cursor=pointer]:
+    - img [ref=e322]
+  - alert [ref=e325]
+```

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza App Security Assessment Report - OWASP Top 10:2025</title>
+    <style>
+        :root {
+            --primary-color: #dc3545;
+            --warning-color: #fd7e14;
+            --info-color: #0dcaf0;
+            --success-color: #198754;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #e85a4f);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .executive-summary {
+            background: white;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .severity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .severity-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .critical { background: #dc3545; }
+        .high { background: #fd7e14; }
+        .medium { background: #ffc107; color: var(--dark-color); }
+        .low { background: #6c757d; }
+        
+        .finding {
+            background: white;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .finding h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .finding-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: bold;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .recommendation {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .owasp-category {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .category-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        
+        .category-content {
+            padding: 1.5rem;
+        }
+        
+        .toc {
+            background: white;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .toc li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .severity-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .finding-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>🔒 Pizza App Security Assessment Report</h1>
+            <p>OWASP Top 10:2025 Compliance Analysis</p>
+            <p><strong>Generated:</strong> February 10, 2026</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Executive Summary -->
+        <section class="executive-summary">
+            <h2>📊 Executive Summary</h2>
+            <p>This security assessment identified <strong>15 security vulnerabilities</strong> across 8 of the 10 OWASP Top 10:2025 categories. The application requires immediate attention for critical and high-severity issues.</p>
+            
+            <div class="severity-grid">
+                <div class="severity-card critical">
+                    <div style="font-size: 2rem;">3</div>
+                    <div>CRITICAL</div>
+                </div>
+                <div class="severity-card high">
+                    <div style="font-size: 2rem;">4</div>
+                    <div>HIGH</div>
+                </div>
+                <div class="severity-card medium">
+                    <div style="font-size: 2rem;">6</div>
+                    <div>MEDIUM</div>
+                </div>
+                <div class="severity-card low">
+                    <div style="font-size: 2rem;">2</div>
+                    <div>LOW</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Table of Contents -->
+        <section class="toc">
+            <h2>📜 Table of Contents</h2>
+            <ul>
+                <li><a href="#a01">A01:2025 - Broken Access Control</a></li>
+                <li><a href="#a02">A02:2025 - Security Misconfiguration</a></li>
+                <li><a href="#a03">A03:2025 - Software Supply Chain Failures</a></li>
+                <li><a href="#a04">A04:2025 - Cryptographic Failures</a></li>
+                <li><a href="#a05">A05:2025 - Injection</a></li>
+                <li><a href="#a06">A06:2025 - Insecure Design</a></li>
+                <li><a href="#a07">A07:2025 - Authentication Failures</a></li>
+                <li><a href="#a08">A08:2025 - Software or Data Integrity Failures</a></li>
+                <li><a href="#recommendations">Priority Recommendations</a></li>
+            </ul>
+        </section>
+
+        <!-- A01: Broken Access Control -->
+        <section id="a01" class="owasp-category">
+            <div class="category-header">A01:2025 - Broken Access Control</div>
+            <div class="category-content">
+                <div class="finding">
+                    <h3>🔴 CRITICAL: No Authentication/Authorization System</h3>
+                    <div class="finding-meta">
+                        <span class="badge critical">CRITICAL</span>
+                        <span class="badge">CWE-862: Missing Authorization</span>
+                        <span class="badge">Location: Application-wide</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> The application lacks any authentication or authorization mechanisms. All functionality is accessible to any user.</p>
+                    <p><strong>Attack Scenario:</strong> Attackers can access all user data, manipulate orders, and perform administrative functions without any credentials.</p>
+                    <div class="code-block">// No authentication checks in context providers
+// src/context/UserContext.tsx - stores user data in localStorage without validation
+const login = (customerData) => {
+  // No password verification
+  // No session validation
+  setUser(customerData);
+};</div>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong>
+                        <ul>
+                            <li>Implement JWT-based authentication with proper token validation</li>
+                            <li>Add role-based access control (RBAC)</li>
+                            <li>Implement server-side session management</li>
+                            <li>Add API endpoint protection with middleware</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="finding">
+                    <h3>🟠 HIGH: Insecure Direct Object References (IDOR)</h3>
+                    <div class="finding-meta">
+                        <span class="badge high">HIGH</span>
+                        <span class="badge">CWE-639: Authorization Bypass</span>
+                        <span class="badge">Location: src/context/OrderContext.tsx</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> Order IDs are predictable and no authorization checks prevent users from accessing other users' orders.</p>
+                    <div class="code-block">// Vulnerable order lookup
+const getOrderById = (orderId: string): Order | null => {
+  return orders.find(order => order.id === orderId) || null;
+  // No check if current user owns this order
+};</div>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Implement proper authorization checks and use UUIDs for order IDs.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A02: Security Misconfiguration -->
+        <section id="a02" class="owasp-category">
+            <div class="category-header">A02:2025 - Security Misconfiguration</div>
+            <div class="category-content">
+                <div class="finding">
+                    <h3>🔴 CRITICAL: Missing Security Headers</h3>
+                    <div class="finding-meta">
+                        <span class="badge critical">CRITICAL</span>
+                        <span class="badge">CWE-693: Protection Mechanism Failure</span>
+                        <span class="badge">Location: next.config.ts</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> No Content Security Policy (CSP) or other critical security headers are configured.</p>
+                    <div class="code-block">// Current next.config.ts - missing security headers
+const nextConfig: NextConfig = {
+  reactCompiler: true,
+  images: {
+    remotePatterns: [{
+      protocol: 'https',
+      hostname: 'images.unsplash.com',
+      port: '',
+      pathname: '/**',
+    }],
+  },
+  // Missing: headers() configuration
+};</div>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Add comprehensive security headers configuration.
+                    </div>
+                </div>
+
+                <div class="finding">
+                    <h3>🟠 HIGH: Detailed Error Information Exposure</h3>
+                    <div class="finding-meta">
+                        <span class="badge high">HIGH</span>
+                        <span class="badge">CWE-209: Information Exposure</span>
+                        <span class="badge">Location: Error handling</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> Error responses contain stack traces and detailed system information.</p>
+                    <p><strong>Evidence:</strong> Test revealed error responses containing React stack traces and internal application structure.</p>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Implement custom error pages and sanitize error messages in production.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A03: Software Supply Chain Failures -->
+        <section id="a03" class="owasp-category">
+            <div class="category-header">A03:2025 - Software Supply Chain Failures</div>
+            <div class="category-content">
+                <div class="finding">
+                    <h3>🔴 CRITICAL: Next.js Remote Code Execution Vulnerability</h3>
+                    <div class="finding-meta">
+                        <span class="badge critical">CRITICAL</span>
+                        <span class="badge">CVSS: 10.0</span>
+                        <span class="badge">CVE: GHSA-9qr9-h5gf-34mp</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> Next.js version 16.0.3 contains a critical RCE vulnerability in React flight protocol.</p>
+                    <div class="code-block">"next": "16.0.3" // VULNERABLE VERSION
+// Needs update to 16.1.6 or higher</div>
+                    <div class="recommendation">
+                        <strong>Immediate Action Required:</strong> Update Next.js to version 16.1.6 immediately.
+                    </div>
+                </div>
+
+                <div class="finding">
+                    <h3>🟡 MEDIUM: Unpinned Dependencies</h3>
+                    <div class="finding-meta">
+                        <span class="badge medium">MEDIUM</span>
+                        <span class="badge">Supply Chain Risk</span>
+                        <span class="badge">Location: package.json</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> All 15 dependencies use unpinned versions (^), allowing potential supply chain attacks.</p>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Pin all dependencies to specific versions and implement dependency scanning.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A04: Cryptographic Failures -->
+        <section id="a04" class="owasp-category">
+            <div class="category-header">A04:2025 - Cryptographic Failures</div>
+            <div class="category-content">
+                <div class="finding">
+                    <h3>🟠 HIGH: Sensitive Data in localStorage (Unencrypted)</h3>
+                    <div class="finding-meta">
+                        <span class="badge high">HIGH</span>
+                        <span class="badge">CWE-312: Cleartext Storage</span>
+                        <span class="badge">Location: UserContext, CartContext</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> User data including email, phone, and address stored in plaintext in localStorage.</p>
+                    <div class="code-block">// Vulnerable data storage
+localStorage.setItem('pizza-user', JSON.stringify({
+  email: 'user@example.com', // Plaintext email
+  phone: '555-1234',         // Plaintext phone
+  address: '123 Main St'     // Plaintext address
+}));</div>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Encrypt sensitive data before localStorage storage or use secure HTTP-only cookies.
+                    </div>
+                </div>
+
+                <div class="finding">
+                    <h3>🟡 MEDIUM: No HTTPS Enforcement</h3>
+                    <div class="finding-meta">
+                        <span class="badge medium">MEDIUM</span>
+                        <span class="badge">CWE-319: Cleartext Transmission</span>
+                        <span class="badge">Location: Configuration</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> No mechanisms to enforce HTTPS or redirect HTTP traffic.</p>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Configure HSTS headers and implement HTTP to HTTPS redirection.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A05: Injection -->
+        <section id="a05" class="owasp-category">
+            <div class="category-header">A05:2025 - Injection</div>
+            <div class="category-content">
+                <div class="finding">
+                    <h3>🟡 MEDIUM: Potential XSS in User Input</h3>
+                    <div class="finding-meta">
+                        <span class="badge medium">MEDIUM</span>
+                        <span class="badge">CWE-79: Cross-Site Scripting</span>
+                        <span class="badge">Location: PizzaCard.tsx, UserContext</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> User input from localStorage rendered without proper sanitization.</p>
+                    <div class="code-block">// Potentially unsafe rendering
+<h3 className="text-lg font-semibold text-gray-900">{pizza.name}</h3>
+<p className="text-sm text-gray-600 mt-1">{pizza.description}</p>
+// If pizza data comes from user input, this could be XSS vector</div>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Implement input sanitization and use React's built-in XSS protection properly.
+                    </div>
+                </div>
+
+                <div class="finding">
+                    <h3>🟢 LOW: Template Injection Risk</h3>
+                    <div class="finding-meta">
+                        <span class="badge low">LOW</span>
+                        <span class="badge">CWE-94: Code Injection</span>
+                        <span class="badge">Location: Error handling</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> Dynamic content rendering could be vulnerable to template injection.</p>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Use parameterized queries and avoid dynamic template generation.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A06: Insecure Design -->
+        <section id="a06" class="owasp-category">
+            <div class="category-header">A06:2025 - Insecure Design</div>
+            <div class="category-content">
+                <div class="finding">
+                    <h3>🟠 HIGH: No Rate Limiting</h3>
+                    <div class="finding-meta">
+                        <span class="badge high">HIGH</span>
+                        <span class="badge">CWE-770: Unbounded Resource Allocation</span>
+                        <span class="badge">Location: API endpoints</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> No rate limiting implementation despite having rate limiting utilities.</p>
+                    <div class="code-block">// Rate limiting code exists but not implemented
+// src/lib/security/rateLimit.ts exists but unused in API routes</div>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Implement rate limiting middleware on all API endpoints.
+                    </div>
+                </div>
+
+                <div class="finding">
+                    <h3>🟡 MEDIUM: Business Logic Flaws</h3>
+                    <div class="finding-meta">
+                        <span class="badge medium">MEDIUM</span>
+                        <span class="badge">CWE-840: Business Logic Errors</span>
+                        <span class="badge">Location: Cart operations</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> No server-side validation for cart operations, allowing negative quantities and price manipulation.</p>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Implement comprehensive server-side business logic validation.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A07: Authentication Failures -->
+        <section id="a07" class="owasp-category">
+            <div class="category-header">A07:2025 - Authentication Failures</div>
+            <div class="category-content">
+                <div class="finding">
+                    <h3>🟡 MEDIUM: Weak Session Management</h3>
+                    <div class="finding-meta">
+                        <span class="badge medium">MEDIUM</span>
+                        <span class="badge">CWE-613: Insufficient Session Expiration</span>
+                        <span class="badge">Location: UserContext</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> User sessions persist indefinitely in localStorage without expiration.</p>
+                    <div class="code-block">// No session expiration logic
+const login = (customerData) => {
+  const customer = {
+    id: generateId(),
+    ...customerData,
+    createdAt: new Date().toISOString(),
+    // Missing: expiresAt, sessionToken, etc.
+  };
+};</div>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Implement proper session management with expiration and invalidation.
+                    </div>
+                </div>
+
+                <div class="finding">
+                    <h3>🟢 LOW: Predictable User IDs</h3>
+                    <div class="finding-meta">
+                        <span class="badge low">LOW</span>
+                        <span class="badge">CWE-340: Predictable Values</span>
+                        <span class="badge">Location: utils.ts</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> User IDs generated using timestamp and Math.random() making them potentially predictable.</p>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Use cryptographically secure UUID generation.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A08: Software or Data Integrity Failures -->
+        <section id="a08" class="owasp-category">
+            <div class="category-header">A08:2025 - Software or Data Integrity Failures</div>
+            <div class="category-content">
+                <div class="finding">
+                    <h3>🟡 MEDIUM: External Resource Integrity</h3>
+                    <div class="finding-meta">
+                        <span class="badge medium">MEDIUM</span>
+                        <span class="badge">CWE-353: Missing Integrity Check</span>
+                        <span class="badge">Location: Image loading</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> External images from Unsplash loaded without integrity verification.</p>
+                    <div class="code-block">// External images without integrity checks
+remotePatterns: [{
+  protocol: 'https',
+  hostname: 'images.unsplash.com', // No integrity verification
+  port: '',
+  pathname: '/**',
+}]</div>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Implement subresource integrity (SRI) for external resources or use local image hosting.
+                    </div>
+                </div>
+
+                <div class="finding">
+                    <h3>🟡 MEDIUM: JSON Data Tampering</h3>
+                    <div class="finding-meta">
+                        <span class="badge medium">MEDIUM</span>
+                        <span class="badge">CWE-345: Data Tampering</span>
+                        <span class="badge">Location: Data files</span>
+                    </div>
+                    <p><strong>Vulnerability:</strong> Static JSON data files have no integrity protection against tampering.</p>
+                    <div class="recommendation">
+                        <strong>Remediation:</strong> Move to server-side database with integrity checks and validation.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Priority Recommendations -->
+        <section id="recommendations" class="executive-summary">
+            <h2>🏆 Priority Recommendations</h2>
+            
+            <h3>🔥 Immediate Actions (Critical)</h3>
+            <ol>
+                <li><strong>Update Next.js</strong> from 16.0.3 to 16.1.6 immediately (RCE vulnerability)</li>
+                <li><strong>Implement Authentication</strong> - Add JWT-based authentication system</li>
+                <li><strong>Add Security Headers</strong> - Configure CSP, HSTS, and other security headers</li>
+            </ol>
+            
+            <h3>🎆 High Priority (Within 1 Week)</h3>
+            <ol>
+                <li><strong>Encrypt Sensitive Data</strong> - Implement encryption for localStorage data</li>
+                <li><strong>Add Rate Limiting</strong> - Implement existing rate limiting code</li>
+                <li><strong>Fix Error Handling</strong> - Remove stack traces from production errors</li>
+                <li><strong>Implement IDOR Protection</strong> - Add authorization checks for data access</li>
+            </ol>
+            
+            <h3>🌟 Medium Priority (Within 1 Month)</h3>
+            <ol>
+                <li><strong>Pin Dependencies</strong> - Lock all dependency versions</li>
+                <li><strong>Add Input Sanitization</strong> - Implement comprehensive XSS protection</li>
+                <li><strong>Implement Session Management</strong> - Add proper session expiration</li>
+                <li><strong>Add Integrity Checks</strong> - Verify external resources</li>
+                <li><strong>Server-side Validation</strong> - Add business logic validation</li>
+                <li><strong>HTTPS Enforcement</strong> - Configure production HTTPS</li>
+            </ol>
+            
+            <div class="code-block">
+<strong>Quick Security Headers Fix (next.config.ts):</strong>
+const nextConfig: NextConfig = {
+  // ... existing config
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; img-src 'self' https://images.unsplash.com; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin'
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()'
+          }
+        ],
+      },
+    ]
+  },
+};
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Security Assessment Report | Generated using OWASP Top 10:2025 methodology</p>
+            <p>Report generated by GitHub Copilot Security Expert | Findings based on static analysis and dynamic testing</p>
+        </div>
+    </footer>
+</body>
+</html>

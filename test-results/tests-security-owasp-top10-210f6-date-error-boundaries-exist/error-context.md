@@ -1,0 +1,43 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e5]:
+        - link "🍕 Pizza Palace" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: 🍕
+          - generic [ref=e9]: Pizza Palace
+        - generic [ref=e10]:
+          - link "Menu" [ref=e11] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e12] [cursor=pointer]:
+            - /url: /about
+          - link "Contact" [ref=e13] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e14]:
+          - link "$0.00" [ref=e15] [cursor=pointer]:
+            - /url: /cart
+            - button "$0.00" [ref=e16]:
+              - img [ref=e17]
+              - generic [ref=e19]: $0.00
+          - generic [ref=e20]:
+            - button "Monitor" [ref=e21]:
+              - img [ref=e22]
+              - generic [ref=e24]: Monitor
+            - link "Login" [ref=e25] [cursor=pointer]:
+              - /url: /login
+              - button "Login" [ref=e26]:
+                - img [ref=e27]
+                - generic [ref=e29]: Login
+    - generic [ref=e31]:
+      - heading "Welcome to Pizza Palace" [level=1] [ref=e32]
+      - paragraph [ref=e33]: Fresh, handcrafted pizzas delivered to your door
+      - paragraph [ref=e36]: 🍕 Free delivery on orders over $25
+    - generic [ref=e37]:
+      - button "All" [ref=e39]
+      - paragraph [ref=e41]: No pizzas available in this category.
+  - button "Open Next.js Dev Tools" [ref=e47] [cursor=pointer]:
+    - img [ref=e48]
+```
