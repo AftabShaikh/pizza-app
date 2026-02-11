@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WCAG 2.1 AA Accessibility Assessment Report - Pizza Palace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .score-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            background: conic-gradient(from 0deg, #10b981 0deg 316deg, #e5e7eb 316deg 360deg);
+        }
+        
+        .score-88 {
+            background: conic-gradient(from 0deg, #f59e0b 0deg 316deg, #e5e7eb 316deg 360deg);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h3 {
+            color: #1f2937;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: medium;
+            margin-bottom: 10px;
+        }
+        
+        .status.pass {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status.fail {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .status.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .test-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .test-item:last-child {
+            border-bottom: none;
+        }
+        
+        .test-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .test-description {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        .violations {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .violation-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #fecaca;
+        }
+        
+        .violation-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .violation-title {
+            font-weight: bold;
+            color: #dc2626;
+            margin-bottom: 5px;
+        }
+        
+        .violation-description {
+            color: #374151;
+            margin-bottom: 10px;
+        }
+        
+        .violation-fix {
+            background: #f9fafb;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.85rem;
+        }
+        
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        .green { color: #10b981; }
+        .red { color: #ef4444; }
+        .yellow { color: #f59e0b; }
+        .blue { color: #3b82f6; }
+        
+        .actions {
+            background: #1f2937;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        
+        .actions h3 {
+            margin-bottom: 20px;
+            color: #f9fafb;
+        }
+        
+        .action-item {
+            background: #374151;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .action-title {
+            font-weight: bold;
+            color: #f59e0b;
+            margin-bottom: 8px;
+        }
+        
+        .code-block {
+            background: #111827;
+            color: #e5e7eb;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🔍 WCAG 2.1 AA Accessibility Report</h1>
+            <p class="subtitle">Pizza Palace Application Assessment</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Generated: February 10, 2026</p>
+        </div>
+
+        <!-- Overall Score -->
+        <div class="score-card">
+            <div class="score-circle score-88">88%</div>
+            <h2>Overall Compliance Score</h2>
+            <p style="color: #6b7280; margin-top: 10px;">Meeting WCAG 2.1 AA standards with minor improvements needed</p>
+        </div>
+
+        <!-- Summary Statistics -->
+        <div class="summary-stats">
+            <div class="stat-card">
+                <div class="stat-number green">22</div>
+                <div class="stat-label">Tests Passed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number red">3</div>
+                <div class="stat-label">Violations Found</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number yellow">2</div>
+                <div class="stat-label">Incomplete</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number blue">37</div>
+                <div class="stat-label">Not Applicable</div>
+            </div>
+        </div>
+
+        <!-- WCAG Principles -->
+        <div class="grid">
+            <!-- Perceivable -->
+            <div class="card">
+                <h3>👁️ Perceivable</h3>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status pass">✓ PASS</span> 1.1.1 Non-text Content
+                    </div>
+                    <div class="test-description">All images have appropriate alt text</div>
+                </div>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status fail">✗ FAIL</span> 1.3.1 Info and Relationships
+                    </div>
+                    <div class="test-description">Heading hierarchy issues detected</div>
+                </div>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status fail">✗ FAIL</span> 1.4.3 Contrast (Minimum)
+                    </div>
+                    <div class="test-description">Orange buttons insufficient contrast (3.59:1)</div>
+                </div>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status pass">✓ PASS</span> 1.4.4 Resize text
+                    </div>
+                    <div class="test-description">Content readable at 200% zoom</div>
+                </div>
+            </div>
+
+            <!-- Operable -->
+            <div class="card">
+                <h3>⌨️ Operable</h3>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status warning">⚠ WARNING</span> 2.1.1 Keyboard
+                    </div>
+                    <div class="test-description">Some elements may not be keyboard accessible</div>
+                </div>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status pass">✓ PASS</span> 2.4.1 Bypass Blocks
+                    </div>
+                    <div class="test-description">Skip links implemented</div>
+                </div>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status pass">✓ PASS</span> 2.4.2 Page Titled
+                    </div>
+                    <div class="test-description">Descriptive page title present</div>
+                </div>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status pass">✓ PASS</span> 2.4.7 Focus Visible
+                    </div>
+                    <div class="test-description">Keyboard focus indicators visible</div>
+                </div>
+            </div>
+
+            <!-- Understandable -->
+            <div class="card">
+                <h3>🧠 Understandable</h3>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status pass">✓ PASS</span> 3.1.1 Language of Page
+                    </div>
+                    <div class="test-description">HTML lang attribute properly set</div>
+                </div>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status pass">✓ PASS</span> 3.2.1 On Focus
+                    </div>
+                    <div class="test-description">No unexpected context changes</div>
+                </div>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status pass">✓ PASS</span> 3.3.2 Labels or Instructions
+                    </div>
+                    <div class="test-description">Form elements properly labeled</div>
+                </div>
+            </div>
+
+            <!-- Robust -->
+            <div class="card">
+                <h3>🏗️ Robust</h3>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status fail">✗ FAIL</span> 4.1.2 Name, Role, Value
+                    </div>
+                    <div class="test-description">ARIA structure issues with grid components</div>
+                </div>
+                <div class="test-item">
+                    <div class="test-title">
+                        <span class="status pass">✓ PASS</span> Interactive Elements
+                    </div>
+                    <div class="test-description">Buttons and links have accessible names</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Critical Violations -->
+        <div class="violations">
+            <h3 style="color: #dc2626; margin-bottom: 20px;">🚨 Critical Issues to Fix</h3>
+            
+            <div class="violation-item">
+                <div class="violation-title">1. ARIA Structure Issues (Critical)</div>
+                <div class="violation-description">
+                    Grid components have incorrect ARIA parent-child relationships. Elements with role="gridcell" 
+                    require parent elements with role="row" and role="grid".
+                </div>
+                <div class="violation-fix">
+                    Fix: Remove role="grid" and role="gridcell" from pizza layout, or implement proper grid structure:
+                    <br><br>
+                    &lt;div role="grid"&gt;<br>
+                    &nbsp;&nbsp;&lt;div role="row"&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div role="gridcell"&gt;...&lt;/div&gt;<br>
+                    &nbsp;&nbsp;&lt;/div&gt;<br>
+                    &lt;/div&gt;
+                </div>
+            </div>
+
+            <div class="violation-item">
+                <div class="violation-title">2. Color Contrast Insufficient (Serious)</div>
+                <div class="violation-description">
+                    Orange buttons have contrast ratio of 3.59:1, but WCAG AA requires 4.5:1 for normal text.
+                    Affects 10 elements across the application.
+                </div>
+                <div class="violation-fix">
+                    Fix: Change button colors from bg-orange-600 to bg-orange-700 or bg-orange-800:
+                    <br><br>
+                    className="bg-orange-700 text-white" // 4.7:1 ratio ✓
+                </div>
+            </div>
+
+            <div class="violation-item">
+                <div class="violation-title">3. Heading Hierarchy (Level A)</div>
+                <div class="violation-description">
+                    H3 elements follow H1 directly without H2, violating logical heading structure.
+                    Screen reader users rely on proper heading hierarchy for navigation.
+                </div>
+                <div class="violation-fix">
+                    Fix: Change pizza card headings from H3 to H2:
+                    <br><br>
+                    &lt;h2 className="text-xl font-bold"&gt;{pizza.name}&lt;/h2&gt;
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Items -->
+        <div class="actions">
+            <h3>🎯 Immediate Action Items</h3>
+            
+            <div class="action-item">
+                <div class="action-title">1. Fix ARIA Structure (Critical - 30 minutes)</div>
+                <p>Remove incorrect ARIA roles from pizza grid layout or implement proper grid structure.</p>
+                <div class="code-block">
+// In src/app/page.tsx - Remove role attributes:
+&lt;div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;
+  {filteredPizzas.map((pizza) =&gt; (
+    &lt;div key={pizza.id}&gt; {/* Remove role="gridcell" */}
+      &lt;PizzaCard pizza={pizza} /&gt;
+    &lt;/div&gt;
+  ))}
+&lt;/div&gt;</div>
+            </div>
+
+            <div class="action-item">
+                <div class="action-title">2. Update Button Colors (Critical - 15 minutes)</div>
+                <p>Change orange button classes to meet WCAG AA contrast requirements.</p>
+                <div class="code-block">
+// Replace all instances of:
+className="bg-orange-600 text-white"
+// With:
+className="bg-orange-700 text-white" // or bg-orange-800</div>
+            </div>
+
+            <div class="action-item">
+                <div class="action-title">3. Fix Heading Structure (Important - 20 minutes)</div>
+                <p>Correct heading hierarchy in pizza cards and add proper H2 section headings.</p>
+                <div class="code-block">
+// In PizzaCard component:
+&lt;h2 className="text-xl font-bold text-gray-900 mb-2"&gt;
+  {pizza.name}
+&lt;/h2&gt;</div>
+            </div>
+        </div>
+
+        <!-- Test Commands -->
+        <div style="background: white; padding: 30px; border-radius: 12px; margin-top: 30px;">
+            <h3 style="margin-bottom: 20px;">🧪 Re-run Tests After Fixes</h3>
+            <div style="background: #f8fafc; padding: 20px; border-radius: 8px; font-family: monospace;">
+                <strong>Generate new report:</strong><br>
+                npm run test:a11y -- --reporter=html<br><br>
+                
+                <strong>Quick compliance check:</strong><br>
+                npx playwright test tests/accessibility/basic-wcag.spec.js --project chromium<br><br>
+                
+                <strong>View results:</strong><br>
+                npx playwright show-report
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 40px; color: #6b7280;">
+            <p>Generated by WCAG 2.1 AA Accessibility Testing Suite</p>
+            <p style="margin-top: 5px;">For support: Consult WCAG Guidelines or accessibility testing documentation</p>
+        </div>
+    </div>
+</body>
+</html>

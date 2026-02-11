@@ -6,7 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:a11y": "playwright test tests/accessibility --reporter=html",
+    "test:a11y:headed": "playwright test tests/accessibility --headed",
+    "test:a11y:chromium": "playwright test tests/accessibility --project chromium",
+    "test:a11y:firefox": "playwright test tests/accessibility --project firefox",
+    "test:a11y:webkit": "playwright test tests/accessibility --project webkit",
+    "test:a11y:mobile": "playwright test tests/accessibility --project \"Mobile Chrome\" --project \"Mobile Safari\"",
+    "test:a11y:comprehensive": "playwright test tests/accessibility/wcag-comprehensive.spec.js --reporter=html",
+    "test:a11y:basic": "playwright test tests/accessibility/basic-wcag.spec.js --reporter=html",
+    "test:a11y:ci": "playwright test tests/accessibility --reporter=junit",
+    "test:a11y:report": "playwright test tests/accessibility/basic-wcag.spec.js --reporter=html && start accessibility-report.html",
+    "test:install": "playwright install"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -16,10 +27,13 @@
     "react-dom": "19.2.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
+    "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "axe-core": "^4.11.1",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",

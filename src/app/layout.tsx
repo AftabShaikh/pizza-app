@@ -25,6 +25,48 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <style>{`
+          /* Screen reader only class */
+          .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+          }
+          
+          /* Skip link styles */
+          .skip-link {
+            transform: translateY(-100%);
+          }
+          
+          .skip-link:focus {
+            transform: translateY(0);
+          }
+          
+          /* High contrast mode support */
+          @media (prefers-contrast: high) {
+            .accessible-orange {
+              background-color: #cc4400 !important;
+            }
+          }
+          
+          /* Focus indicators for better visibility */
+          button:focus-visible,
+          a:focus-visible,
+          input:focus-visible,
+          select:focus-visible,
+          textarea:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+          }
+        `}</style>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

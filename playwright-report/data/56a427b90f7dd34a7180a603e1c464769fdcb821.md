@@ -1,0 +1,302 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#main"
+    - navigation [ref=e4]:
+      - generic [ref=e6]:
+        - link "🍕 Pizza Palace" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e9]: 🍕
+          - generic [ref=e10]: Pizza Palace
+        - generic [ref=e11]:
+          - link "Menu" [ref=e12] [cursor=pointer]:
+            - /url: /
+          - link "About" [ref=e13] [cursor=pointer]:
+            - /url: /about
+          - link "Contact" [ref=e14] [cursor=pointer]:
+            - /url: /contact
+        - generic [ref=e15]:
+          - link "$0.00" [ref=e16] [cursor=pointer]:
+            - /url: /cart
+            - button "$0.00" [ref=e17]:
+              - img [ref=e18]
+              - generic [ref=e20]: $0.00
+          - generic [ref=e21]:
+            - button "Monitor" [ref=e22]:
+              - img [ref=e23]
+              - generic [ref=e25]: Monitor
+            - link "Login" [ref=e26] [cursor=pointer]:
+              - /url: /login
+              - button "Login" [ref=e27]:
+                - img [ref=e28]
+                - generic [ref=e30]: Login
+    - banner [ref=e31]:
+      - generic [ref=e32]:
+        - heading "Welcome to Pizza Palace" [level=1] [ref=e33]
+        - paragraph [ref=e34]: Fresh, handcrafted pizzas delivered to your door
+        - paragraph [ref=e37]: 🍕 Free delivery on orders over $25
+    - main [ref=e38]:
+      - region "Choose Your Pizza Category" [ref=e39]:
+        - heading "Choose Your Pizza Category" [level=2] [ref=e40]
+        - group "Choose Your Pizza Category" [ref=e41]:
+          - button "Filter pizzas by all category (currently selected)" [pressed] [ref=e42]: All
+          - button "Filter pizzas by classic category" [ref=e43]: Classic
+          - button "Filter pizzas by premium category" [ref=e44]: Premium
+          - button "Filter pizzas by vegetarian category" [ref=e45]: Vegetarian
+          - button "Filter pizzas by specialty category" [ref=e46]: Specialty
+          - button "Filter pizzas by vegan category" [ref=e47]: Vegan
+      - region "Our Complete Menu" [ref=e48]:
+        - heading "Our Complete Menu" [level=2] [ref=e49]
+        - grid "Pizza menu showing 10 pizzas" [ref=e50]:
+          - 'gridcell "Margherita Pizza Margherita classic 4.5 Margherita Classic pizza with fresh mozzarella, basil, and tomato sauce 🕐 12 min 🔥 280 cal Ingredients: mozzarella cheese, fresh basil, tomato sauce, olive oil $14.99 Base: $14.99 Customize Add to Cart" [ref=e51]':
+            - heading "Margherita Pizza" [level=3] [ref=e52]
+            - generic [ref=e53]:
+              - generic [ref=e55]:
+                - img "Margherita" [ref=e56]
+                - generic [ref=e58]: classic
+                - generic [ref=e60]:
+                  - img [ref=e61]
+                  - generic [ref=e63]: "4.5"
+              - generic [ref=e65]:
+                - generic [ref=e66]:
+                  - heading "Margherita" [level=3] [ref=e67]
+                  - paragraph [ref=e68]: Classic pizza with fresh mozzarella, basil, and tomato sauce
+                - generic [ref=e69]:
+                  - generic [ref=e70]: 🕐 12 min
+                  - generic [ref=e71]: 🔥 280 cal
+                - generic [ref=e72]: "Ingredients: mozzarella cheese, fresh basil, tomato sauce, olive oil"
+              - generic [ref=e73]:
+                - generic [ref=e74]:
+                  - generic [ref=e75]: $14.99
+                  - generic [ref=e76]: "Base: $14.99"
+                - generic [ref=e77]:
+                  - button "Customize" [ref=e78]
+                  - button "Add to Cart" [ref=e79]
+          - 'gridcell "Pepperoni Classic Pizza Pepperoni Classic classic 4.5 Pepperoni Classic Traditional pepperoni pizza with mozzarella and tomato sauce 🕐 14 min 🔥 320 cal Ingredients: mozzarella cheese, pepperoni, tomato sauce $19.49 Base: $16.99 Customize Add to Cart" [ref=e80]':
+            - heading "Pepperoni Classic Pizza" [level=3] [ref=e81]
+            - generic [ref=e82]:
+              - generic [ref=e84]:
+                - img "Pepperoni Classic" [ref=e85]
+                - generic [ref=e87]: classic
+                - generic [ref=e89]:
+                  - img [ref=e90]
+                  - generic [ref=e92]: "4.5"
+              - generic [ref=e94]:
+                - generic [ref=e95]:
+                  - heading "Pepperoni Classic" [level=3] [ref=e96]
+                  - paragraph [ref=e97]: Traditional pepperoni pizza with mozzarella and tomato sauce
+                - generic [ref=e98]:
+                  - generic [ref=e99]: 🕐 14 min
+                  - generic [ref=e100]: 🔥 320 cal
+                - generic [ref=e101]: "Ingredients: mozzarella cheese, pepperoni, tomato sauce"
+              - generic [ref=e102]:
+                - generic [ref=e103]:
+                  - generic [ref=e104]: $19.49
+                  - generic [ref=e105]: "Base: $16.99"
+                - generic [ref=e106]:
+                  - button "Customize" [ref=e107]
+                  - button "Add to Cart" [ref=e108]
+          - 'gridcell "Supreme Deluxe Pizza Supreme Deluxe premium 4.5 Supreme Deluxe Loaded with pepperoni, sausage, mushrooms, bell peppers, and onions 🕐 18 min 🔥 380 cal Ingredients: mozzarella cheese, pepperoni, italian sausage, mushrooms, bell peppers, red onions, tomato sauce $32.24 Base: $22.99 Customize Add to Cart" [ref=e109]':
+            - heading "Supreme Deluxe Pizza" [level=3] [ref=e110]
+            - generic [ref=e111]:
+              - generic [ref=e113]:
+                - img "Supreme Deluxe" [ref=e114]
+                - generic [ref=e116]: premium
+                - generic [ref=e118]:
+                  - img [ref=e119]
+                  - generic [ref=e121]: "4.5"
+              - generic [ref=e123]:
+                - generic [ref=e124]:
+                  - heading "Supreme Deluxe" [level=3] [ref=e125]
+                  - paragraph [ref=e126]: Loaded with pepperoni, sausage, mushrooms, bell peppers, and onions
+                - generic [ref=e127]:
+                  - generic [ref=e128]: 🕐 18 min
+                  - generic [ref=e129]: 🔥 380 cal
+                - generic [ref=e130]: "Ingredients: mozzarella cheese, pepperoni, italian sausage, mushrooms, bell peppers, red onions, tomato sauce"
+              - generic [ref=e131]:
+                - generic [ref=e132]:
+                  - generic [ref=e133]: $32.24
+                  - generic [ref=e134]: "Base: $22.99"
+                - generic [ref=e135]:
+                  - button "Customize" [ref=e136]
+                  - button "Add to Cart" [ref=e137]
+          - 'gridcell "Hawaiian Paradise Pizza Hawaiian Paradise classic 4.5 Hawaiian Paradise Ham and pineapple with mozzarella on tomato sauce 🕐 15 min 🔥 290 cal Ingredients: mozzarella cheese, ham, pineapple, tomato sauce $23.74 Base: $18.99 Customize Add to Cart" [ref=e138]':
+            - heading "Hawaiian Paradise Pizza" [level=3] [ref=e139]
+            - generic [ref=e140]:
+              - generic [ref=e142]:
+                - img "Hawaiian Paradise" [ref=e143]
+                - generic [ref=e145]: classic
+                - generic [ref=e147]:
+                  - img [ref=e148]
+                  - generic [ref=e150]: "4.5"
+              - generic [ref=e152]:
+                - generic [ref=e153]:
+                  - heading "Hawaiian Paradise" [level=3] [ref=e154]
+                  - paragraph [ref=e155]: Ham and pineapple with mozzarella on tomato sauce
+                - generic [ref=e156]:
+                  - generic [ref=e157]: 🕐 15 min
+                  - generic [ref=e158]: 🔥 290 cal
+                - generic [ref=e159]: "Ingredients: mozzarella cheese, ham, pineapple, tomato sauce"
+              - generic [ref=e160]:
+                - generic [ref=e161]:
+                  - generic [ref=e162]: $23.74
+                  - generic [ref=e163]: "Base: $18.99"
+                - generic [ref=e164]:
+                  - button "Customize" [ref=e165]
+                  - button "Add to Cart" [ref=e166]
+          - 'gridcell "Veggie Delight Pizza Veggie Delight vegetarian 4.5 Veggie Delight Fresh vegetables including mushrooms, bell peppers, onions, and tomatoes 🕐 16 min 🔥 250 cal Ingredients: mozzarella cheese, mushrooms, bell peppers, red onions, tomatoes, black olives, tomato sauce $24.99 Base: $17.99 Customize Add to Cart" [ref=e167]':
+            - heading "Veggie Delight Pizza" [level=3] [ref=e168]
+            - generic [ref=e169]:
+              - generic [ref=e171]:
+                - img "Veggie Delight" [ref=e172]
+                - generic [ref=e174]: vegetarian
+                - generic [ref=e176]:
+                  - img [ref=e177]
+                  - generic [ref=e179]: "4.5"
+              - generic [ref=e181]:
+                - generic [ref=e182]:
+                  - heading "Veggie Delight" [level=3] [ref=e183]
+                  - paragraph [ref=e184]: Fresh vegetables including mushrooms, bell peppers, onions, and tomatoes
+                - generic [ref=e185]:
+                  - generic [ref=e186]: 🕐 16 min
+                  - generic [ref=e187]: 🔥 250 cal
+                - generic [ref=e188]: "Ingredients: mozzarella cheese, mushrooms, bell peppers, red onions, tomatoes, black olives, tomato sauce"
+              - generic [ref=e189]:
+                - generic [ref=e190]:
+                  - generic [ref=e191]: $24.99
+                  - generic [ref=e192]: "Base: $17.99"
+                - generic [ref=e193]:
+                  - button "Customize" [ref=e194]
+                  - button "Add to Cart" [ref=e195]
+          - 'gridcell "Meat Lovers Pizza Meat Lovers premium 4.5 Meat Lovers For carnivores: pepperoni, sausage, bacon, and ham 🕐 20 min 🔥 420 cal Ingredients: mozzarella cheese, pepperoni, italian sausage, bacon, ham, tomato sauce $36.74 Base: $24.99 Customize Add to Cart" [ref=e196]':
+            - heading "Meat Lovers Pizza" [level=3] [ref=e197]
+            - generic [ref=e198]:
+              - generic [ref=e200]:
+                - img "Meat Lovers" [ref=e201]
+                - generic [ref=e203]: premium
+                - generic [ref=e205]:
+                  - img [ref=e206]
+                  - generic [ref=e208]: "4.5"
+              - generic [ref=e210]:
+                - generic [ref=e211]:
+                  - heading "Meat Lovers" [level=3] [ref=e212]
+                  - paragraph [ref=e213]: "For carnivores: pepperoni, sausage, bacon, and ham"
+                - generic [ref=e214]:
+                  - generic [ref=e215]: 🕐 20 min
+                  - generic [ref=e216]: 🔥 420 cal
+                - generic [ref=e217]: "Ingredients: mozzarella cheese, pepperoni, italian sausage, bacon, ham, tomato sauce"
+              - generic [ref=e218]:
+                - generic [ref=e219]:
+                  - generic [ref=e220]: $36.74
+                  - generic [ref=e221]: "Base: $24.99"
+                - generic [ref=e222]:
+                  - button "Customize" [ref=e223]
+                  - button "Add to Cart" [ref=e224]
+          - 'gridcell "BBQ Chicken Pizza BBQ Chicken specialty 4.5 BBQ Chicken Grilled chicken with BBQ sauce, red onions, and cilantro 🕐 17 min 🔥 340 cal Ingredients: mozzarella cheese, grilled chicken, red onions, cilantro, bbq sauce $25.99 Base: $20.99 Customize Add to Cart" [ref=e225]':
+            - heading "BBQ Chicken Pizza" [level=3] [ref=e226]
+            - generic [ref=e227]:
+              - generic [ref=e229]:
+                - img "BBQ Chicken" [ref=e230]
+                - generic [ref=e232]: specialty
+                - generic [ref=e234]:
+                  - img [ref=e235]
+                  - generic [ref=e237]: "4.5"
+              - generic [ref=e239]:
+                - generic [ref=e240]:
+                  - heading "BBQ Chicken" [level=3] [ref=e241]
+                  - paragraph [ref=e242]: Grilled chicken with BBQ sauce, red onions, and cilantro
+                - generic [ref=e243]:
+                  - generic [ref=e244]: 🕐 17 min
+                  - generic [ref=e245]: 🔥 340 cal
+                - generic [ref=e246]: "Ingredients: mozzarella cheese, grilled chicken, red onions, cilantro, bbq sauce"
+              - generic [ref=e247]:
+                - generic [ref=e248]:
+                  - generic [ref=e249]: $25.99
+                  - generic [ref=e250]: "Base: $20.99"
+                - generic [ref=e251]:
+                  - button "Customize" [ref=e252]
+                  - button "Add to Cart" [ref=e253]
+          - 'gridcell "Mediterranean Pizza Mediterranean specialty 4.5 Mediterranean Feta cheese, olives, spinach, and sun-dried tomatoes 🕐 16 min 🔥 310 cal Ingredients: mozzarella cheese, feta cheese, spinach, black olives, sun-dried tomatoes, olive oil $29.99 Base: $21.99 Customize Add to Cart" [ref=e254]':
+            - heading "Mediterranean Pizza" [level=3] [ref=e255]
+            - generic [ref=e256]:
+              - generic [ref=e258]:
+                - img "Mediterranean" [ref=e259]
+                - generic [ref=e261]: specialty
+                - generic [ref=e263]:
+                  - img [ref=e264]
+                  - generic [ref=e266]: "4.5"
+              - generic [ref=e268]:
+                - generic [ref=e269]:
+                  - heading "Mediterranean" [level=3] [ref=e270]
+                  - paragraph [ref=e271]: Feta cheese, olives, spinach, and sun-dried tomatoes
+                - generic [ref=e272]:
+                  - generic [ref=e273]: 🕐 16 min
+                  - generic [ref=e274]: 🔥 310 cal
+                - generic [ref=e275]: "Ingredients: mozzarella cheese, feta cheese, spinach, black olives, sun-dried tomatoes, olive oil"
+              - generic [ref=e276]:
+                - generic [ref=e277]:
+                  - generic [ref=e278]: $29.99
+                  - generic [ref=e279]: "Base: $21.99"
+                - generic [ref=e280]:
+                  - button "Customize" [ref=e281]
+                  - button "Add to Cart" [ref=e282]
+          - 'gridcell "Vegan Supreme Pizza Vegan Supreme vegan 4.5 Vegan Supreme Plant-based cheese with vegetables and dairy-free toppings 🕐 15 min 🔥 220 cal Ingredients: vegan cheese, mushrooms, bell peppers, red onions, spinach, tomatoes, tomato sauce $26.99 Base: $19.99 Customize Add to Cart" [ref=e283]':
+            - heading "Vegan Supreme Pizza" [level=3] [ref=e284]
+            - generic [ref=e285]:
+              - generic [ref=e287]:
+                - img "Vegan Supreme" [ref=e288]
+                - generic [ref=e290]: vegan
+                - generic [ref=e292]:
+                  - img [ref=e293]
+                  - generic [ref=e295]: "4.5"
+              - generic [ref=e297]:
+                - generic [ref=e298]:
+                  - heading "Vegan Supreme" [level=3] [ref=e299]
+                  - paragraph [ref=e300]: Plant-based cheese with vegetables and dairy-free toppings
+                - generic [ref=e301]:
+                  - generic [ref=e302]: 🕐 15 min
+                  - generic [ref=e303]: 🔥 220 cal
+                - generic [ref=e304]: "Ingredients: vegan cheese, mushrooms, bell peppers, red onions, spinach, tomatoes, tomato sauce"
+              - generic [ref=e305]:
+                - generic [ref=e306]:
+                  - generic [ref=e307]: $26.99
+                  - generic [ref=e308]: "Base: $19.99"
+                - generic [ref=e309]:
+                  - button "Customize" [ref=e310]
+                  - button "Add to Cart" [ref=e311]
+          - 'gridcell "Buffalo Chicken Pizza Buffalo Chicken specialty 4.5 Buffalo Chicken Spicy buffalo chicken with ranch drizzle and celery 🕐 18 min 🔥 360 cal Ingredients: mozzarella cheese, buffalo chicken, celery, ranch dressing, buffalo sauce $26.49 Base: $21.99 Customize Add to Cart" [ref=e312]':
+            - heading "Buffalo Chicken Pizza" [level=3] [ref=e313]
+            - generic [ref=e314]:
+              - generic [ref=e316]:
+                - img "Buffalo Chicken" [ref=e317]
+                - generic [ref=e319]: specialty
+                - generic [ref=e321]:
+                  - img [ref=e322]
+                  - generic [ref=e324]: "4.5"
+              - generic [ref=e326]:
+                - generic [ref=e327]:
+                  - heading "Buffalo Chicken" [level=3] [ref=e328]
+                  - paragraph [ref=e329]: Spicy buffalo chicken with ranch drizzle and celery
+                - generic [ref=e330]:
+                  - generic [ref=e331]: 🕐 18 min
+                  - generic [ref=e332]: 🔥 360 cal
+                - generic [ref=e333]: "Ingredients: mozzarella cheese, buffalo chicken, celery, ranch dressing, buffalo sauce"
+              - generic [ref=e334]:
+                - generic [ref=e335]:
+                  - generic [ref=e336]: $26.49
+                  - generic [ref=e337]: "Base: $21.99"
+                - generic [ref=e338]:
+                  - button "Customize" [ref=e339]
+                  - button "Add to Cart" [ref=e340]
+  - button "Open Next.js Dev Tools" [ref=e346] [cursor=pointer]:
+    - generic [ref=e349]:
+      - text: Compiling
+      - generic [ref=e350]:
+        - generic [ref=e351]: .
+        - generic [ref=e352]: .
+        - generic [ref=e353]: .
+  - alert [ref=e354]
+```
