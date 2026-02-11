@@ -6,24 +6,63 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:security": "eslint . --ext .ts,.tsx,.js,.jsx --config .eslintrc.security.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:security": "playwright test tests/security/",
+    "audit:security": "npm audit && node tests/security/supply-chain-audit.js",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@heroicons/react": "^2.2.0",
-    "clsx": "^2.1.1",
-    "next": "16.0.3",
+    "@heroicons/react": "2.2.0",
+    "bcryptjs": "2.4.3",
+    "clsx": "2.1.1",
+    "cors": "2.8.5",
+    "crypto-js": "4.2.0",
+    "express": "4.21.2",
+    "express-rate-limit": "7.4.1",
+    "helmet": "8.0.0",
+    "joi": "17.13.3",
+    "jsonwebtoken": "9.0.2",
+    "next": "16.1.6",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "uuid": "11.0.3",
+    "zod": "3.23.8"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@playwright/test": "1.58.2",
+    "@tailwindcss/postcss": "4.0.0",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.1.0",
+    "@testing-library/user-event": "14.5.2",
+    "@types/bcryptjs": "2.4.6",
+    "@types/cors": "2.8.17",
+    "@types/crypto-js": "4.2.2",
+    "@types/express": "5.0.0",
+    "@types/jest": "29.5.14",
+    "@types/jsonwebtoken": "9.0.7",
+    "@types/node": "20.17.9",
+    "@types/react": "19.2.13",
+    "@types/react-dom": "19.2.3",
+    "@types/uuid": "11.0.0",
     "babel-plugin-react-compiler": "1.0.0",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.3",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "eslint": "9.16.0",
+    "eslint-config-next": "16.1.6",
+    "eslint-plugin-security": "3.0.1",
+    "jest": "29.7.0",
+    "jest-environment-jsdom": "29.7.0",
+    "tailwindcss": "4.0.0",
+    "typescript": "5.7.2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "moduleNameMapping": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
   }
 }
