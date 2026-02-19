@@ -29,10 +29,20 @@ jest.mock('next/router', () => ({
 jest.mock('next/image', () => ({
   __esModule: true,
   default: (props) => {
+    const { src, alt, width, height, ...rest } = props;
     // eslint-disable-next-line jsx-a11y/alt-text, @next/next/no-img-element
-    return <img {...props} />;
+    return React.createElement('img', {
+      src,
+      alt,
+      width,
+      height,
+      ...rest
+    });
   },
 }));
+
+// Import React for JSX
+const React = require('react');
 
 // Mock localStorage
 const localStorageMock = {
