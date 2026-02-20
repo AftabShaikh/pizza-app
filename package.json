@@ -11,6 +11,15 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:security": "playwright test tests/security/",
+    "test:a11y": "playwright test WCAG-2.1-AA/tests/",
+    "test:a11y:headed": "playwright test WCAG-2.1-AA/tests/ --headed",
+    "test:a11y:debug": "playwright test WCAG-2.1-AA/tests/ --debug",
+    "test:a11y:report": "playwright show-report",
+    "test:a11y:perceivable": "playwright test WCAG-2.1-AA/tests/01-perceivable.spec.ts",
+    "test:a11y:operable": "playwright test WCAG-2.1-AA/tests/02-operable.spec.ts",
+    "test:a11y:understandable": "playwright test WCAG-2.1-AA/tests/03-understandable.spec.ts",
+    "test:a11y:robust": "playwright test WCAG-2.1-AA/tests/04-robust.spec.ts",
+    "test:a11y:ci": "playwright test WCAG-2.1-AA/tests/ --reporter=html,junit",
     "audit:security": "npm audit && node tests/security/supply-chain-audit.js",
     "type-check": "tsc --noEmit"
   },
@@ -32,6 +41,7 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.8.2",
     "@playwright/test": "1.58.2",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.1.0",
