@@ -1,0 +1,43 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - link "🍕 Pizza Palace" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: 🍕
+        - generic [ref=e8]: Pizza Palace
+      - generic [ref=e9]:
+        - link "Menu" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=e11] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e12] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e13]:
+        - link "$0.00" [ref=e14] [cursor=pointer]:
+          - /url: /cart
+          - button "$0.00" [ref=e15]:
+            - img [ref=e16]
+            - generic [ref=e18]: $0.00
+        - generic [ref=e19]:
+          - button "Monitor" [ref=e20] [cursor=pointer]:
+            - img [ref=e21]
+            - generic [ref=e23]: Monitor
+          - link "Login" [ref=e24] [cursor=pointer]:
+            - /url: /login
+            - button "Login" [ref=e25]:
+              - img [ref=e26]
+              - generic [ref=e28]: Login
+  - generic [ref=e31]:
+    - generic [ref=e33]: 🛒
+    - heading "Your cart is empty" [level=2] [ref=e34]
+    - paragraph [ref=e35]: Add some delicious pizzas to get started!
+    - link "Browse Menu" [ref=e36] [cursor=pointer]:
+      - /url: /
+      - button "Browse Menu" [ref=e37]
+  - button "Open Next.js Dev Tools" [ref=e43] [cursor=pointer]:
+    - img [ref=e44]
+  - alert [ref=e47]
+```
