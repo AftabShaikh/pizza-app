@@ -27,6 +27,7 @@ Pay special attention to:
   1. **Executive Summary** — purpose, scope, and tools used
   2. **Testing Approach** — how Playwright will be used to automate WCAG checks (e.g., axe-core integration, manual DOM assertions)
   3. **Detailed Test Plan** — individual test cases grouped by WCAG checklist category (Perceivable, Operable, Understandable, Robust)
+  
 ## MANDATORY TEST CASE REQUIREMENTS (NON-NEGOTIABLE)
 
 **Every single test case MUST include ALL of the following components or the implementation will be considered incomplete:**
